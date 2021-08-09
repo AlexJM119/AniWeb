@@ -43,12 +43,6 @@ def home():
                            title='Home', text='Welcome to the app!')
 
 
-@app.route("/about")
-def about():
-    return render_template('about.html',
-                           title='About', text='Learn about this app')
-
-
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
