@@ -1,0 +1,13 @@
+{% extends "user_page.html" %}
+{% block content %}
+  <div class="content-section">
+      <fieldset class="form-group">
+          <legend class="border-bottom mb-4">{{ title }}</legend>  
+          <div class="form-group">
+              {% for item in items %}
+              <p>{{ item.title }}</p>
+              {% endfor %}
+          </div>
+      </fieldset>       
+</div>
+{% endblock content %}
