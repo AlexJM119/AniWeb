@@ -60,13 +60,14 @@ def register():
 def login():
     global user
     form = LoginForm()
-    target = User.query.filter_by(username=form.username.data).all()
-    password = User.query.filter_by(
-               username=form.username.data).first().password
-    if form.validate_on_submit() and (target != []) and
-    (password == form.password.data):  # checks if entries are valid
-        user = form.username.data
-        return redirect(url_for('my_watchlist'))  # if so - send to home page
+    if form.validate_on_submit():
+        target = User.query.filter_by(
+            username=form.username.data).all()
+        password = User.query.filter_by(
+            username=form.username.data).first().password
+        if (target != []) and (password == form.password.data):
+            user = form.username.data
+            return redirect(url_for('my_watchlist'))
     return render_template('login.html', form=form)
 
 
